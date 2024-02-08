@@ -8,13 +8,21 @@
 import UIKit
 
 class CalculationsListViewController: UIViewController {
-    
     var calculations: [(expression: [CalculationHistoryItem], result: Double)] = []
     @IBOutlet weak var tableView: UITableView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         initialize()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initialize()
+    }
+    
+    private func initialize() {
+        modalPresentationStyle = .fullScreen
     }
     
     override func viewDidLoad() {
@@ -38,15 +46,6 @@ class CalculationsListViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initialize()
-    }
-    
-    private func initialize() {
-        modalPresentationStyle = .fullScreen
-    }
-    
     @IBAction func dismissVC(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -68,11 +67,25 @@ class CalculationsListViewController: UIViewController {
 }
 
 extension CalculationsListViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:18))
+        let label = UILabel(frame: CGRect(x:10, y:5, width:tableView.frame.size.width, height:18))
+        label.font = UIFont.systemFont(ofSize: 14)
+        
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let dateStr =  dateFormatter.string(from: currentDate)
+        
+        label.text = dateStr
+        view.addSubview(label)
+        view.backgroundColor = UIColor.gray
+        return view
+    }
 }
 
 extension CalculationsListViewController: UITableViewDataSource {
@@ -87,6 +100,5 @@ extension CalculationsListViewController: UITableViewDataSource {
         cell.configure(with: expressionToString(historyItem.expression), result: String(historyItem.result))
         
         return cell
-        
     }
 }
