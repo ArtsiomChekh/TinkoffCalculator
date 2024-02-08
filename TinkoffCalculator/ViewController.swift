@@ -45,7 +45,6 @@ enum CalculationHistoryItem {
 }
 
 class ViewController: UIViewController {
-    
     var calculationHistory: [CalculationHistoryItem] = []
     var calculations: [(expression: [CalculationHistoryItem], result: Double)] = []
     
@@ -53,6 +52,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         resetLabelText()
+        historyButton.accessibilityIdentifier = "historyButtom"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,6 +117,7 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var historyButton: UIButton!
         
     lazy var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
