@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="87" id="dno-K1-G6r" customClass="HistoryTableViewCell" customModule="TinkoffCalculator" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="87"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dno-K1-G6r" id="udK-k5-hPH">
+                <rect key="frame" x="0.0" y="0.0" width="415" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HA-AH-Elu">
+                        <rect key="frame" x="15" y="7.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Co5-eG-lDe">
+                        <rect key="frame" x="15" y="58.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0HA-AH-Elu" firstAttribute="bottom" secondItem="udK-k5-hPH" secondAttribute="centerY" constant="-15" id="5qe-tY-8XV"/>
+                    <constraint firstItem="Co5-eG-lDe" firstAttribute="leading" secondItem="udK-k5-hPH" secondAttribute="leading" constant="15" id="D5T-Xy-paz"/>
+                    <constraint firstItem="Co5-eG-lDe" firstAttribute="top" secondItem="udK-k5-hPH" secondAttribute="centerY" constant="15" id="TZB-P5-Mrm"/>
+                    <constraint firstItem="0HA-AH-Elu" firstAttribute="leading" secondItem="udK-k5-hPH" secondAttribute="leading" constant="15" id="nwt-sr-6XZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="expressionLabel" destination="Co5-eG-lDe" id="l1j-dl-mit"/>
+                <outlet property="resultLabel" destination="0HA-AH-Elu" id="bcC-M3-2Ja"/>
+            </connections>
+            <point key="canvasLocation" x="-289.13043478260875" y="-226.67410714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

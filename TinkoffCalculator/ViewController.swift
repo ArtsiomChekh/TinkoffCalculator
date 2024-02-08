@@ -46,6 +46,9 @@ enum CalculationHistoryItem {
 
 class ViewController: UIViewController {
     
+    var calculationHistory: [CalculationHistoryItem] = []
+    var calculations: [(expression: [CalculationHistoryItem], result: Double)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,8 +108,8 @@ class ViewController: UIViewController {
         
         do {
             let result = try calculate()
-            
             label.text = numberFormatter.string(from: NSNumber(value: result))
+            calculations.append((calculationHistory, result))
         } catch {
             label.text = "Error. Divide by zero!"
         }
@@ -114,9 +117,7 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var label: UILabel!
-    
-    var calculationHistory: [CalculationHistoryItem] = []
-    
+        
     lazy var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         
@@ -130,7 +131,7 @@ class ViewController: UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let calculationsListVC = sb.instantiateViewController(identifier: "CalculationsListViewController")
         if let vc = calculationsListVC as? CalculationsListViewController {
-            vc.result = label.text
+            vc.calculations = calculations
         }
         
         navigationController?.pushViewController(calculationsListVC, animated: true)

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C443DEDB2B74F9D300AEF35A /* CalculationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443DEDA2B74F9D300AEF35A /* CalculationsListViewController.swift */; };
 		C443DEE62B74FA1E00AEF35A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C443DEE52B74FA1E00AEF35A /* Main.storyboard */; };
+		C443DEEC2B74FD0C00AEF35A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443DEEB2B74FD0C00AEF35A /* HistoryTableViewCell.swift */; };
+		C443DEF42B74FD2100AEF35A /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C443DEF32B74FD2100AEF35A /* HistoryTableViewCell.xib */; };
 		C4CD00A92B74F5D7005396AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD00A82B74F5D7005396AE /* AppDelegate.swift */; };
 		C4CD00AB2B74F5D7005396AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD00AA2B74F5D7005396AE /* SceneDelegate.swift */; };
 		C4CD00AD2B74F5D7005396AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD00AC2B74F5D7005396AE /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		C443DEDA2B74F9D300AEF35A /* CalculationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationsListViewController.swift; sourceTree = "<group>"; };
 		C443DEE52B74FA1E00AEF35A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C443DEEB2B74FD0C00AEF35A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		C443DEF32B74FD2100AEF35A /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		C4CD00A52B74F5D7005396AE /* TinkoffCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CD00A82B74F5D7005396AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CD00AA2B74F5D7005396AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C443DEEA2B74FCEB00AEF35A /* History */ = {
+			isa = PBXGroup;
+			children = (
+				C443DEDA2B74F9D300AEF35A /* CalculationsListViewController.swift */,
+				C443DEEB2B74FD0C00AEF35A /* HistoryTableViewCell.swift */,
+				C443DEF32B74FD2100AEF35A /* HistoryTableViewCell.xib */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		C4CD009C2B74F5D7005396AE = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +115,7 @@
 		C4CD00A72B74F5D7005396AE /* TinkoffCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				C443DEEA2B74FCEB00AEF35A /* History */,
 				C4CD00A82B74F5D7005396AE /* AppDelegate.swift */,
 				C4CD00AA2B74F5D7005396AE /* SceneDelegate.swift */,
 				C4CD00AC2B74F5D7005396AE /* ViewController.swift */,
@@ -108,7 +123,6 @@
 				C4CD00B32B74F5D8005396AE /* LaunchScreen.storyboard */,
 				C443DEE52B74FA1E00AEF35A /* Main.storyboard */,
 				C4CD00B62B74F5D8005396AE /* Info.plist */,
-				C443DEDA2B74F9D300AEF35A /* CalculationsListViewController.swift */,
 			);
 			path = TinkoffCalculator;
 			sourceTree = "<group>";
@@ -236,6 +250,7 @@
 			files = (
 				C443DEE62B74FA1E00AEF35A /* Main.storyboard in Resources */,
 				C4CD00B52B74F5D8005396AE /* LaunchScreen.storyboard in Resources */,
+				C443DEF42B74FD2100AEF35A /* HistoryTableViewCell.xib in Resources */,
 				C4CD00B22B74F5D8005396AE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +280,7 @@
 				C4CD00AD2B74F5D7005396AE /* ViewController.swift in Sources */,
 				C4CD00A92B74F5D7005396AE /* AppDelegate.swift in Sources */,
 				C4CD00AB2B74F5D7005396AE /* SceneDelegate.swift in Sources */,
+				C443DEEC2B74FD0C00AEF35A /* HistoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
