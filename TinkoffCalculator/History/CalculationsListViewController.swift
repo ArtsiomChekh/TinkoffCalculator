@@ -8,11 +8,7 @@
 import UIKit
 
 class CalculationsListViewController: UIViewController {
-<<<<<<< HEAD
     var calculations: [Calculation] = []
-=======
-    var calculations: [(expression: [CalculationHistoryItem], result: Double)] = []
->>>>>>> 962a897a23c95ab389f92c6615b76c78c9837131
     @IBOutlet weak var tableView: UITableView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
