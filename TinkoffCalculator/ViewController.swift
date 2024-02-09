@@ -54,7 +54,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         resetLabelText()
+<<<<<<< HEAD
         calculations = calculationHistoryStorage.loadHistory()
+=======
+>>>>>>> 962a897a23c95ab389f92c6615b76c78c9837131
         historyButton.accessibilityIdentifier = "historyButtom"
     }
     
