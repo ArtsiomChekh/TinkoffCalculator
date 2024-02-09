@@ -11,6 +11,7 @@
 		C443DEE62B74FA1E00AEF35A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C443DEE52B74FA1E00AEF35A /* Main.storyboard */; };
 		C443DEEC2B74FD0C00AEF35A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443DEEB2B74FD0C00AEF35A /* HistoryTableViewCell.swift */; };
 		C443DEF42B74FD2100AEF35A /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C443DEF32B74FD2100AEF35A /* HistoryTableViewCell.xib */; };
+		C44D18FB2B76029F0022AC04 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D18FA2B76029F0022AC04 /* Storage.swift */; };
 		C4CD00A92B74F5D7005396AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD00A82B74F5D7005396AE /* AppDelegate.swift */; };
 		C4CD00AB2B74F5D7005396AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD00AA2B74F5D7005396AE /* SceneDelegate.swift */; };
 		C4CD00AD2B74F5D7005396AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD00AC2B74F5D7005396AE /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 		C443DEE52B74FA1E00AEF35A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C443DEEB2B74FD0C00AEF35A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		C443DEF32B74FD2100AEF35A /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		C44D18FA2B76029F0022AC04 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		C4CD00A52B74F5D7005396AE /* TinkoffCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CD00A82B74F5D7005396AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CD00AA2B74F5D7005396AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 			path = History;
 			sourceTree = "<group>";
 		};
+		C44D18F92B7602490022AC04 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				C44D18FA2B76029F0022AC04 /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		C4CD009C2B74F5D7005396AE = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		C4CD00A72B74F5D7005396AE /* TinkoffCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				C44D18F92B7602490022AC04 /* Storage */,
 				C443DEEA2B74FCEB00AEF35A /* History */,
 				C4CD00A82B74F5D7005396AE /* AppDelegate.swift */,
 				C4CD00AA2B74F5D7005396AE /* SceneDelegate.swift */,
@@ -281,6 +292,7 @@
 				C4CD00A92B74F5D7005396AE /* AppDelegate.swift in Sources */,
 				C4CD00AB2B74F5D7005396AE /* SceneDelegate.swift in Sources */,
 				C443DEEC2B74FD0C00AEF35A /* HistoryTableViewCell.swift in Sources */,
+				C44D18FB2B76029F0022AC04 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

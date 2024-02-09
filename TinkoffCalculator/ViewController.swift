@@ -46,12 +46,15 @@ enum CalculationHistoryItem {
 
 class ViewController: UIViewController {
     var calculationHistory: [CalculationHistoryItem] = []
-    var calculations: [(expression: [CalculationHistoryItem], result: Double)] = []
+    var calculations: [Calculation] = []
+    
+    let calculationHistoryStorage = CalculationHistoryStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         resetLabelText()
+        calculations = calculationHistoryStorage.loadHistory()
         historyButton.accessibilityIdentifier = "historyButtom"
     }
     
@@ -109,7 +112,9 @@ class ViewController: UIViewController {
         do {
             let result = try calculate()
             label.text = numberFormatter.string(from: NSNumber(value: result))
-            calculations.append((calculationHistory, result))
+            let newCalculation = Calculation(expression: calculationHistory, result: result)
+            calculations.append(newCalculation)
+            calculationHistoryStorage.setHistory(calculation: calculations)
         } catch {
             label.text = "Error. Divide by zero!"
         }
