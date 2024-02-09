@@ -70,35 +70,34 @@ extension CalculationsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x:0, y:0, width:tableView.frame.size.width, height:18))
-        let label = UILabel(frame: CGRect(x:10, y:5, width:tableView.frame.size.width, height:18))
-        label.font = UIFont.systemFont(ofSize: 14)
-        
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        let dateStr =  dateFormatter.string(from: currentDate)
-        
-        label.text = dateStr
-        view.addSubview(label)
-        view.backgroundColor = UIColor.gray
-        return view
-    }
 }
 
 extension CalculationsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return calculations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
-        
         let historyItem = calculations[indexPath.row]
         cell.configure(with: expressionToString(historyItem.expression), result: String(historyItem.result))
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as? UITableViewHeaderFooterView
+        header?.contentView.backgroundColor = UIColor.systemGray2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        
+        return formatter.string(from: calculations[section].date as Date)
     }
 }
