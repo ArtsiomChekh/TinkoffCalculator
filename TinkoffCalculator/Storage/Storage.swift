@@ -7,14 +7,10 @@
 
 import Foundation
 
-struct Calculation {
+struct Calculation: Codable {
     let expression: [CalculationHistoryItem]
     let result: Double
     let date: Date
-}
-
-extension Calculation: Codable {
-    
 }
 
 extension CalculationHistoryItem: Codable {

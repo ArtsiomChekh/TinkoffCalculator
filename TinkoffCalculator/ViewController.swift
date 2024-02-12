@@ -131,14 +131,18 @@ class ViewController: UIViewController {
             let labelNumber = numberFormatter.number(from: labelText)?.intValue
         else { return }
         
-        let result = calculatePi(number: labelNumber)
-        label.text = result
+        if labelNumber == 0 {
+            label.text = "Enter the number!"
+        } else {
+            let result = calculatePi(number: labelNumber)
+            label.text = result
+        }
     }
     
     func calculatePi(number n: Int) -> String {
-         let π = Double.pi
-         return String(format: "%.\(n)f", π)
-     }
+        let π = Double.pi
+        return String(format: "%.\(n)f", π)
+    }
     
     lazy var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
