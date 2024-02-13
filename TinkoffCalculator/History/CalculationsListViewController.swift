@@ -31,14 +31,8 @@ class CalculationsListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.backgroundColor = UIColor.systemGray5
-        let tableHeaderView = UIView()
-        tableHeaderView.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 30)
-        tableView.tableHeaderView = tableHeaderView
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
-        
-        let nib = UINib(nibName: "HistoryTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "HistoryTableViewCell")
+        let nib = UINib(nibName: HistoryTableViewCell.identifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: HistoryTableViewCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,15 +83,25 @@ extension CalculationsListViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header = view as? UITableViewHeaderFooterView
-        header?.contentView.backgroundColor = UIColor.systemGray2
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        headerView.backgroundColor = .systemGray5
+        
+        let label = UILabel()
+        label.frame = CGRect.init(x: 5, y: 0, width: headerView.frame.width-10, height: headerView.frame.height-20)
+        
+        let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
+        let dateString = formatter.string(from: date)
         
-        return formatter.string(from: calculations[section].date as Date)
+        label.text = dateString
+        
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = .black
+        
+        headerView.addSubview(label)
+        
+        return headerView
     }
 }

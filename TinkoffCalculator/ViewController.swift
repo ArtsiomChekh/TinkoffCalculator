@@ -50,12 +50,33 @@ class ViewController: UIViewController {
     
     let calculationHistoryStorage = CalculationHistoryStorage()
     
+    private let alertView: AlertView = {
+        let screenBounds = UIScreen.main.bounds
+        let alertHeight: CGFloat = 100
+        let alertWidth: CGFloat = screenBounds.width - 40
+        let x: CGFloat = screenBounds.width / 2 - alertWidth / 2
+        let y: CGFloat = screenBounds.height / 2 - alertWidth / 2
+        let alertFrame = CGRect(x: x, y: y, width: alertWidth, height: alertHeight)
+        let alertView = AlertView(frame: alertFrame)
+        return alertView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         resetLabelText()
         calculations = calculationHistoryStorage.loadHistory()
         historyButton.accessibilityIdentifier = "historyButtom"
+        
+        view.addSubview(alertView)
+        alertView.alpha = 0
+        alertView.alertText = "Вы нашли пасхалку!"
+        
+        view.subviews.forEach {
+            if type(of: $0) == UIButton.self {
+                $0.layer.cornerRadius = 15
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +97,12 @@ class ViewController: UIViewController {
         } else {
             label.text?.append(buttonText)
         }
+        
+        if label.text == "3,141592" {
+            animateAlert()
+        }
+        
+        sender.animateTap()
     }
     
     @IBAction func operationButtonPressed(_ sender: UIButton) {
@@ -116,7 +143,8 @@ class ViewController: UIViewController {
             calculations.append(newCalculation)
             calculationHistoryStorage.setHistory(calculation: calculations)
         } catch {
-            label.text = "Error. Divide by zero!"
+            label.text = "Error!"
+            label.shake()
         }
         calculationHistory.removeAll()
     }
@@ -133,10 +161,12 @@ class ViewController: UIViewController {
         
         if labelNumber == 0 {
             label.text = "Enter the number!"
+            label.shake()
         } else {
             let result = calculatePi(number: labelNumber)
             label.text = result
         }
+        
     }
     
     func calculatePi(number n: Int) -> String {
@@ -186,7 +216,59 @@ class ViewController: UIViewController {
     func resetLabelText() {
         label.text = "0"
     }
+    
+    func animateAlert() {
+        if !view.contains(alertView) {
+            alertView.alpha = 0
+            alertView.center = view.center
+            alertView.tintColor = UIColor.white
+            view.addSubview(alertView)
+        }
+        
+        UIView.animateKeyframes(withDuration: 2.0, delay: 0.5) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.alertView.alpha = 1
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                var newCenter = self.label.center
+                newCenter.y -= self.alertView.bounds.height
+                self.alertView.center = newCenter
+            }
+        }
+    }
 }
 
+extension UILabel {
+    
+    func shake() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.05
+        animation.repeatCount = 5
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: center.x - 5, y: center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: center.x + 5, y: center.y))
+        
+        layer.add(animation, forKey: "position")
+    }
+}
 
+extension UIButton {
+    
+    func animateTap() {
+        let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+        scaleAnimation.values = [1, 0.9, 1]
+        scaleAnimation.keyTimes = [0, 0.2, 1]
+        
+        let opacityAnimation = CAKeyframeAnimation(keyPath: "opasity")
+        opacityAnimation.values = [0.4, 0.8, 1]
+        opacityAnimation.keyTimes = [0, 0.2, 1]
+        
+        let animationGroup = CAAnimationGroup()
+        animationGroup.duration = 1.5
+        animationGroup.animations = [scaleAnimation, opacityAnimation]
+        
+        layer.add(animationGroup, forKey: "groupAnimation")
+    }
+}
 

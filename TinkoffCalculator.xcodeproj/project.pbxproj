@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AADB3C002B7B571700BB7F84 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADB3BFF2B7B571700BB7F84 /* AlertView.swift */; };
 		C443DEDB2B74F9D300AEF35A /* CalculationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443DEDA2B74F9D300AEF35A /* CalculationsListViewController.swift */; };
 		C443DEE62B74FA1E00AEF35A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C443DEE52B74FA1E00AEF35A /* Main.storyboard */; };
 		C443DEEC2B74FD0C00AEF35A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443DEEB2B74FD0C00AEF35A /* HistoryTableViewCell.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AADB3BFF2B7B571700BB7F84 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		C443DEDA2B74F9D300AEF35A /* CalculationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationsListViewController.swift; sourceTree = "<group>"; };
 		C443DEE52B74FA1E00AEF35A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C443DEEB2B74FD0C00AEF35A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		C4CD009C2B74F5D7005396AE = {
 			isa = PBXGroup;
 			children = (
+				AADB3BFF2B7B571700BB7F84 /* AlertView.swift */,
 				C4CD00A72B74F5D7005396AE /* TinkoffCalculator */,
 				C4CD00BE2B74F5D8005396AE /* TinkoffCalculatorTests */,
 				C4CD00C92B74F5D8005396AE /* TinkoffCalculatorUITests */,
@@ -289,6 +292,7 @@
 			files = (
 				C443DEDB2B74F9D300AEF35A /* CalculationsListViewController.swift in Sources */,
 				C4CD00AD2B74F5D7005396AE /* ViewController.swift in Sources */,
+				AADB3C002B7B571700BB7F84 /* AlertView.swift in Sources */,
 				C4CD00A92B74F5D7005396AE /* AppDelegate.swift in Sources */,
 				C4CD00AB2B74F5D7005396AE /* SceneDelegate.swift in Sources */,
 				C443DEEC2B74FD0C00AEF35A /* HistoryTableViewCell.swift in Sources */,
