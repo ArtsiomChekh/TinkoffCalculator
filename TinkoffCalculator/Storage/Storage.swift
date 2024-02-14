@@ -53,7 +53,6 @@ extension CalculationHistoryItem: Codable {
 }
 
 class CalculationHistoryStorage {
-    
     static let calculationHistoryKey = "calculationHistoryKey"
     
     func setHistory(calculation: [Calculation]) {

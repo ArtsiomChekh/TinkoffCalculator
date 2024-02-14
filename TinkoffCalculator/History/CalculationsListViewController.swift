@@ -61,12 +61,14 @@ class CalculationsListViewController: UIViewController {
 }
 
 extension CalculationsListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
     }
 }
 
 extension CalculationsListViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

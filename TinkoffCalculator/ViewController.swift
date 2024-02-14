@@ -52,7 +52,6 @@ protocol LongPressViewProtocol {
 }
 
 class ViewController: UIViewController {
-    
     var shared: UIView = UIView()
     var animator: UIViewPropertyAnimator?
     
@@ -81,7 +80,7 @@ class ViewController: UIViewController {
         
         view.addSubview(alertView)
         alertView.alpha = 0
-        alertView.alertText = "Вы нашли пасхалку!"
+        alertView.alertText = "You found an Easter egg!"
         
         view.subviews.forEach {
             if type(of: $0) == UIButton.self {
@@ -167,7 +166,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var historyButton: UIButton!
     
-    
     @IBAction func piButtonPressed() {
         guard
             let labelText = label.text,
@@ -181,7 +179,6 @@ class ViewController: UIViewController {
             let result = calculatePi(number: labelNumber)
             label.text = result
         }
-        
     }
     
     func calculatePi(number n: Int) -> String {
@@ -237,8 +234,13 @@ class ViewController: UIViewController {
             alertView.alpha = 0
             alertView.center = view.center
             alertView.tintColor = UIColor.white
+            
             view.addSubview(alertView)
         }
+        
+        alertView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        alertView.layer.cornerRadius = 30
+        alertView.clipsToBounds = true
         
         UIView.animateKeyframes(withDuration: 2.0, delay: 0.5) {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
@@ -262,7 +264,7 @@ class ViewController: UIViewController {
       }
     
     func startAnimation() {
-        shared = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        shared = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         shared.backgroundColor = .systemOrange
         shared.center = view.center
         

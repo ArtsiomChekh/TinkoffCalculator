@@ -8,7 +8,6 @@
 import UIKit
 
 class AlertView: UIView {
-    
     var alertText: String? {
         didSet {
             label.text = alertText
@@ -35,7 +34,7 @@ class AlertView: UIView {
     
     private func setupUI() {
         addSubview(label)
-        backgroundColor = .red
+        backgroundColor = .green
         
         let tap = UITapGestureRecognizer()
         tap.addTarget(self, action: #selector(hide))
