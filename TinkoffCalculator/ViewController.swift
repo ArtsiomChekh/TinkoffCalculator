@@ -44,7 +44,18 @@ enum CalculationHistoryItem {
     case operation(Operation)
 }
 
+protocol LongPressViewProtocol {
+    var shared: UIView { get }
+    
+    func startAnimation()
+    func stopAnimation()
+}
+
 class ViewController: UIViewController {
+    
+    var shared: UIView = UIView()
+    var animator: UIViewPropertyAnimator?
+    
     var calculationHistory: [CalculationHistoryItem] = []
     var calculations: [Calculation] = []
     
@@ -60,7 +71,7 @@ class ViewController: UIViewController {
         let alertView = AlertView(frame: alertFrame)
         return alertView
     }()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,6 +88,10 @@ class ViewController: UIViewController {
                 $0.layer.cornerRadius = 15
             }
         }
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        longPressGesture.minimumPressDuration = 1.0
+        view.addGestureRecognizer(longPressGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -237,6 +252,39 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    @objc func handleLongPress(_ sender: UILongPressGestureRecognizer) {
+          if sender.state == .began {
+              startAnimation()
+          } else if sender.state == .ended {
+              stopAnimation()
+          }
+      }
+    
+    func startAnimation() {
+        shared = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        shared.backgroundColor = .systemOrange
+        shared.center = view.center
+        
+        let circlePath = UIBezierPath(ovalIn: shared.bounds)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        shared.layer.mask = shapeLayer
+
+        view.addSubview(shared)
+        
+        animator = UIViewPropertyAnimator(duration: 2.0, curve: .easeIn) {
+            self.shared.transform = CGAffineTransform(scaleX: 4.0, y: 4.0)
+        }
+        
+        animator?.startAnimation()
+    }
+    
+    func stopAnimation() {
+        animator?.stopAnimation(true)
+        animator = nil
+        shared.removeFromSuperview()
+    }
 }
 
 extension UILabel {
@@ -272,3 +320,4 @@ extension UIButton {
     }
 }
 
+extension ViewController: LongPressViewProtocol {}

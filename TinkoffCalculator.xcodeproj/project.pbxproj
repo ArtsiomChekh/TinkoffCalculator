@@ -107,7 +107,6 @@
 		C4CD009C2B74F5D7005396AE = {
 			isa = PBXGroup;
 			children = (
-				AADB3BFF2B7B571700BB7F84 /* AlertView.swift */,
 				C4CD00A72B74F5D7005396AE /* TinkoffCalculator */,
 				C4CD00BE2B74F5D8005396AE /* TinkoffCalculatorTests */,
 				C4CD00C92B74F5D8005396AE /* TinkoffCalculatorUITests */,
@@ -131,6 +130,7 @@
 				C44D18F92B7602490022AC04 /* Storage */,
 				C443DEEA2B74FCEB00AEF35A /* History */,
 				C4CD00A82B74F5D7005396AE /* AppDelegate.swift */,
+				AADB3BFF2B7B571700BB7F84 /* AlertView.swift */,
 				C4CD00AA2B74F5D7005396AE /* SceneDelegate.swift */,
 				C4CD00AC2B74F5D7005396AE /* ViewController.swift */,
 				C4CD00B12B74F5D8005396AE /* Assets.xcassets */,

@@ -45,7 +45,7 @@ class AlertView: UIView {
     @objc private func hide() {
         removeFromSuperview()
     }
-     
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         label.frame = bounds
