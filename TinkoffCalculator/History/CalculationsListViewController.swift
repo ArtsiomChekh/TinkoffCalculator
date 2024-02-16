@@ -79,7 +79,7 @@ extension CalculationsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as! HistoryTableViewCell
-        let historyItem = calculations[indexPath.row]
+        let historyItem = calculations[indexPath.section]
         cell.configure(with: expressionToString(historyItem.expression), result: String(historyItem.result))
         
         return cell
@@ -92,12 +92,10 @@ extension CalculationsListViewController: UITableViewDataSource {
         let label = UILabel()
         label.frame = CGRect.init(x: 5, y: 0, width: headerView.frame.width-10, height: headerView.frame.height-20)
         
-        let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
-        let dateString = formatter.string(from: date)
         
-        label.text = dateString
+        label.text = formatter.string(from: calculations[section].date as Date)
         
         label.font = .systemFont(ofSize: 16)
         label.textColor = .black
